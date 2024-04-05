@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            align-items: center;
+        }
+        .inputbox{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+        input{
+            margin: 20px;
+            text-align: center;
+            height: 40px;
+            width: 200px;
+            border-radius: 15px;
+        }
+        .operations{
+            width: 92%;
+            margin-top: 5%;
+            display: flex;
+            justify-content: center;
+        }
+        button{
+            margin: 20px;
+            width: 100px;
+            height: 35px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .input{
+            width: 240px;
+            height: 55px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="inputt">#</h1>
+    <div class="inputbox">
+        <input type="number" class="inp1" placeholder="Enter 1st Number">
+        <input type="number" class="inp2" placeholder="Enter 2nd Number">
+    </div>
+    <div class="operations">
+        <button class="add">add</button>
+        <button class="subtract">subtract</button>
+        <button class="multiply">multiply</button>
+        <button class="divide">divide</button>
+    </div>
+</body>
+</html>
+<script>
+    let inputt = document.querySelector('h1');
+    let add = document.querySelector(".add");
+    let subtract = document.querySelector('.subtract');
+    let multiply = document.querySelector('.multiply');
+    let divide = document.querySelector('.divide');
+    let inp1 = document.querySelector('.inp1');
+    let inp2 = document.querySelector('.inp2');
+    let sum = 0;
+
+    add.addEventListener('click',function(){
+        sum =  parseFloat(inp1.value) + parseFloat(inp2.value)
+         inputt.innerHTML = sum;
+        // alert('hii')
+    })
+    subtract.addEventListener('click',function(){
+        sum =  parseFloat(inp1.value) - parseFloat(inp2.value)
+         inputt.innerHTML = sum;
+         //alert('hii')
+    })
+    multiply.addEventListener('click', function(){
+        sum =  parseFloat(inp1.value) * parseFloat(inp2.value)
+         inputt.innerHTML = sum;
+         //alert('hiio')
+    })
+    divide.addEventListener('click', function(){
+        sum =  parseFloat(inp1.value) / parseFloat(inp2.value)
+         inputt.innerHTML = sum;
+        
+    })
+</script>
