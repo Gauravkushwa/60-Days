@@ -1,0 +1,310 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainupperlogo{
+    width: 100%;
+    background-color: rgb(239, 239, 239);
+    position: fixed;
+}
+.upperlogo{
+    display: grid;
+    grid-template-columns: 2.5fr 4fr 1.1fr;
+    height: auto;
+    width: 90%;
+    margin-left: 5%;
+}
+.branchupperlogo{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 8px;
+}
+.branchupperlogo>span{
+    font-size: small;
+    cursor: pointer;
+}
+.mainlogo{
+    display: grid;
+    grid-template-columns: 4fr 2fr 1fr;
+    height: auto;
+    width: 100%;
+    position: fixed;
+    margin-top: 2.3%;
+    background-color: white;
+}
+.mainbranchlogo{
+    display: flex;
+    margin: 6px;
+    align-items: center;
+}
+.mainbranchlogo >  img{
+    width: 26%;
+    margin-left: 30px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.mainbranchlogo > span{
+    margin-right: 20px;
+    cursor: pointer;
+}
+.mainbranchlogo > .searchbarimg{
+    width: 5%;
+    margin-left: 20px;
+    background-color: #EAEAEA;
+}
+.mainbranchlogo > input{
+    padding: 10px;
+    width: 280px;
+    border: none;
+    outline: none;
+    background-color: #EAEAEA;
+}
+.mainlogo > #searchbox{
+    background-color: #EAEAEA;
+    border-radius: 8px;
+}
+.mainbranchlogo > .line{
+    border:  0.5px solid black;
+    height: 15px;
+    margin: 3px;
+    margin-right: 9px;
+}
+.mainbranchlogo > .heart{
+    width: 13%;
+    margin-left: -10px;
+}
+.mainbranchlogo > .bag{
+    width: 15%;
+    margin-left: -10px;
+}
+.downlogo{
+    width: 120%;
+    margin-top: 5.3%;
+    background-color: white;
+    position: fixed;
+    padding: 30px;
+}
+.downlogo > span{
+   text-transform: uppercase;
+   margin: 8px;
+   cursor: pointer;
+   margin-left: 90px;
+}
+
+/* .branchslider{ 
+    height: 32%;
+    border: 2px solid red;
+    margin: 8px;
+} */
+.wrapper{
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    overflow: hidden;
+    margin-top: 9%;
+}
+.wrapper i{
+    height: 46px;
+    width: 46px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-top: 21%;
+    text-align: center;
+    line-height: 46px;
+    position: absolute;
+    cursor: pointer;
+    font-size: x-large;
+}
+.wrapper i:first-child{
+    left: 30px;
+}
+.wrapper i:last-child{
+    right: 30px;
+}
+.wrapper>.carousel{
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 40px;
+}
+.carousel img{
+    height: 500px;
+    width: calc(100% / 3);
+
+}
+
+.firstimgs{
+    width: 92%;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    margin-left: 4%;
+    margin-top: 2.5%;
+}
+
+.firstbranchimgs > img{
+    width: 90%;
+}
+.firstbranchimgs > h4{
+    font-size: small;
+    text-align: center;
+    margin-top: 10%;
+}
+.banner{
+    margin-top: 5%;
+}
+.secondmainimgs{
+    height: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 300px);
+    column-gap: 15px;
+    margin-top: 2%;
+}
+.secondmainimgs > .secondbranchimgs > img{
+width: 110%;
+}
+.wrapper2{
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    overflow: hidden;
+    margin-top: -30px;
+}
+.wrapper2 i{
+    height: 46px;
+    width: 46px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-top: 15%;
+    text-align: center;
+    line-height: 46px;
+    position: absolute;
+    cursor: pointer;
+    font-size: x-large;
+}
+.wrapper2 i:first-child{
+    left: 30px;
+}
+.wrapper2 i:last-child{
+    right: 30px;
+}
+.wrapper2>.carousel2{
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 40px;
+}
+.carousel2 img{
+    height: 300px;
+    width: calc(100% / 4);
+
+}
+.thirdimgs{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 300px);
+    row-gap: 30px;
+    column-gap: 10px;
+}
+.thirdbranchimgs img{
+    width: 100%;
+}
+.fourthimgs{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 5px;
+}
+.branchfourthimgs img{
+    width: 100%;
+}
+.wrapper3{
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    overflow: hidden;
+}
+.wrapper3 i{
+    height: 46px;
+    width: 46px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-top: 19%;
+    text-align: center;
+    line-height: 46px;
+    position: absolute;
+    cursor: pointer;
+    font-size: x-large;
+}
+.wrapper3 i:first-child{
+    left: 30px;
+}
+.wrapper3 i:last-child{
+    right: 30px;
+}
+.wrapper3>.carousel3{
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 40px;
+}
+.carousel3 img{
+    height: 400px;
+    width: calc(100% / 3);
+}
+.fifthimgs{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 5px;
+    width: 60%;
+    margin-left: 20%;
+}
+.fifthimgs .branchfifthimgs img{
+    height: 300px;
+    width: 100%;
+}
+.wrapper4{
+    /* display: flex; */
+    justify-content: center;
+    max-width: 1200px;
+    overflow: hidden;
+}
+.wrapper4 i{
+    height: 46px;
+    width: 46px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-top: 19%;
+    text-align: center;
+    line-height: 46px;
+    position: absolute;
+    cursor: pointer;
+    font-size: x-large;
+    transform: translateY(-50%);
+}
+.wrapper4{
+    width: calc(100% / 5);
+}
+.wrapper4 i:first-child{
+    left: 30px;
+}
+.wrapper4 i:last-child{
+    right: 30px;
+}
+.subwrapper{
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    font-size: x-small;
+}
+.carousel4{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    margin: 20px;
+    width: 19%;
+}
+.carousel4 img{
+    width: 80%;
+}
+
+
