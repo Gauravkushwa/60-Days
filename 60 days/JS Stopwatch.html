@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(153, 177, 198);
+        }
+        .main{
+            min-height: 100vh;
+            border: 2px solid red;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .displaytabe{
+            background-color:black;
+            color: aliceblue;
+            font-size: 50px;
+            font-weight: 600;
+            padding: 17px 25px;
+            border-radius: 15px;
+        }
+        .buttons{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        button{
+            padding: 10px 20px;
+            margin: 35px 12px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+        }
+        .start{
+            background-color: green;
+        }
+        .pause{
+            background-color: rgb(182, 42, 42);
+            color: white;
+        }
+        .restart{
+            background-color: blue;
+            color: wheat;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="displaytabe">
+            <h1>00 : 00 : 00</h1>
+        </div>
+        <div class="buttons">
+            <button class="start">Start</button>
+            <button class="pause">Pause</button>
+            <button class="restart">Restart</button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let start = document.querySelector('.start');
+    let pause = document.querySelector('.pause');
+    let restart = document.querySelector('.restart');
+    let display = document.querySelector('.displaytabe');
+
+    let misec = 0;
+    let sec = 0;
+    let min = 0;
+    let timer = null;
+    start.addEventListener('click',function()
+    {
+        if(timer !== null){
+            clearInterval(timer)
+        }
+       timer =  setInterval(setTime, 100)
+    })
+    pause.addEventListener('click',function(){
+         clearInterval(timer);
+        
+    });
+    restart.addEventListener('click',function(){
+        clearInterval(timer)
+        display.innerHTML = `00 : 00 : 00`
+        misec = sec = min = 0;
+    })
+   function setTime(){
+    misec++
+    if(misec == 10){
+        misec = 0 
+         sec++
+         if(sec == 60){
+            sec = 0;
+            min++;
+         }
+   
+   }
+
+   let msecs = misec < 10 ? `0${misec}` : misec;
+   let secs = sec < 10 ? `0${sec}` : sec;
+   let mins = min <10 ? `0${min}` : min;
+
+
+   display.innerHTML = `${mins} : ${secs} : ${msecs}`;
+   }
+</script>
