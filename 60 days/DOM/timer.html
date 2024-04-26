@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgba(0, 0, 139, 0.78);
+            color: black;
+        }
+        input{
+            background-color: rgba(136, 168, 190, 0.84);
+            height: 30px;
+            border-radius: 15px;
+            text-align: center;
+            color: black;
+        }
+        .inputbox{
+            margin-top: 10%;
+            margin-left: 10%;
+        }
+        h1{
+            margin-left: 15%;
+
+        }
+        button{
+            height: 25px;
+            width: 80px;
+            margin: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.9s;
+        }
+        button:hover{
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="inputbox">
+        <label for="">Please Enter Hours</label>
+    <input type="number" placeholder="hours" id="hours" style="margin-left: 15px;"><br><br>
+    <label for="">Please Enter Minutes</label>
+    <input type="number" placeholder="minutes" id="minutes"> <br><br>
+    <label for="">Please Enter Seconds</label>
+    <input type="number" placeholder="seconds" id="seconds">
+    </div>
+
+   <h1 class="display">00 : 00 : 00</h1>
+    <button class="start" style="background-color: green;">start</button>
+    <button class="stop" style="background-color: lightcoral;">stop</button>
+    <button class="restart" style="background-color: red; color: wheat;">restart</button>
+</body>
+</html>
+<script>
+    let display = document.querySelector('.display');
+    let start = document.querySelector('.start');
+    let stop = document.querySelector('.stop');
+    let restart = document.querySelector('.restart');
+   
+   let Interval;
+   let totalValue = 0;
+
+   start.addEventListener('click', function(){
+    
+    const hours = parseInt(document.querySelector('#hours').value || 0);
+    const minutes = parseInt(document.querySelector('#minutes').value || 0);
+    const seconds = parseInt(document.querySelector('#seconds').value || 0);
+
+    totalValue = hours *3600 + minutes*60 + seconds;
+    if(Interval){
+        clearInterval(Interval)
+    }
+    Interval = setInterval(updatevalue, 1000);
+   
+   })
+   stop.addEventListener('click',function(){
+    clearInterval(Interval)
+   })
+   restart.addEventListener('click',function(){
+    clearInterval(Interval);
+    totalValue = "00";
+    updatevalue();
+   })
+  function updatevalue(){
+        const hours = Math.floor(totalValue / 3600);
+        const minutes = Math.floor((totalValue % 3600) / 60);
+        const seconds = totalValue % 60;
+
+      const  update = `${hours} : ${minutes} : ${seconds}`;
+        display.innerHTML = update;
+
+       if(totalValue === 0){
+        clearInterval(Interval)
+       }
+       else{
+        totalValue--
+       }
+  }
+</script>
