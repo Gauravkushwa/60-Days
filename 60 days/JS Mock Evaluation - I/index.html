@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            height: 180px;
+            width: 180px;
+        }
+        .container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        div{
+            margin: 10px;
+            padding: 20px;
+            cursor: pointer;
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        .nabs{
+            box-shadow: none;
+            display: grid;
+            display: flex;
+            width: 98%;
+            height: 100px;
+            grid-template-columns: repeat(3, 2fr 2fr 1fr);
+            justify-content: space-between;
+            background-color: rgba(0, 0, 0, 0.558);
+        }
+        input{
+            outline: none;
+        }
+        .select ,.select2{
+            box-shadow: none;
+        }
+        .h3{
+            box-shadow: none;
+        }
+        @media(max-width: 800px) {
+            .container{
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .nabs{
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="nabs">
+      <div class="h3">
+        <h2>Product Limiting Page</h2>
+      </div>
+      <div class="select">
+        <select class="selects">
+        <option value="electronics">Electronics</option>
+        <option value="jewelery">jewelery</option>
+        <option value="men's clothing">men's clothing</option>
+        <option value="women's clothing">women's clothing</option>
+        </select>
+        <input type="text" placeholder="Seach Products">
+      </div>
+      <div class="select2">
+        <select name="" id="selects2">price:
+            <option value="Low to high">Price: Low to high</option>
+            <option value="High to Low">Price: High to Low</option>
+        </select>
+      </div>
+    </div>
+    <div class="container">
+
+    </div>
+</body>
+</html>
+<script>
+    let container = document.querySelector('.container');
+    let categoryselect = document.querySelector('.selects');
+    let priceCategory = document.querySelector('#selects2');
+
+   function getData(URL){
+    fetch(URL)
+    .then(function (resp){
+        resp = resp.json()
+        return resp
+    })
+    .then(function (resp){
+        console.log(resp);
+        ShowData(resp)
+    })
+   };
+   function ShowData(element){
+    container.innerHTML = null;
+    element.forEach(function(ele, i){
+        let div = document.createElement('div');
+        let img = document.createElement('img');
+        img.src = ele.image
+
+        let h4 = document.createElement('h4');
+        h4.innerHTML = ele.description;
+
+        let p = document.createElement('p');
+        p.innerHTML = ele.title
+
+        let h3 = document.createElement('h3');
+        h3.innerHTML = ele.category
+
+        let id = document.createElement('p');
+        id.innerHTML = ele.id;
+
+        let price = document.createElement('h3');
+        price.innerHTML = ele.price;
+
+        console.log(div.append(h3, id, img, price, p));
+        container.append(div);
+    })
+   }
+
+   function applycotegory(){
+    let values = categoryselect.value;
+    let URL = `https://fakestoreapi.com/products/category/${values}`
+    getData(URL)
+   }
+
+   categoryselect.addEventListener("change", applycotegory)
+   getData('https://fakestoreapi.com/products');
+
+   function applyChange(){
+    let priceValue = priceCategory.value;
+
+    let URL = `https://fakestoreapi.com/products?sort=desc${priceValue}`
+    getData(URL)
+   }
+
+   priceCategory.addEventListener('change', applyChange);
+</script>
