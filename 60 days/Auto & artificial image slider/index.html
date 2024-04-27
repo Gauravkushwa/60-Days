@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slideshow</title>
+<style>
+    .slideshow-container {
+        position: relative;
+        max-width: 800px;
+        margin: auto;
+    }
+    .slide {
+        display: none;
+    }
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+       background-color: black;
+        font-weight: bold;
+        font-size: 20px;
+        transition: 0.6s ease;   
+        border-radius: 15px;
+    }
+    img{
+        height: 300px;
+        transition: transform 0.9s;
+        cursor: pointer;
+    }
+    img:hover{
+        transform: scale(1.1);
+    }
+    .prev {
+        left: 0;
+        border-radius: 3px 0 0 3px;
+    }
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+    .stop-start {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #f44336;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+    <div class="slide">
+        <img src="./download.png" style="width:100%">
+    </div>
+
+    <div class="slide">
+        <img src="./fk-default-image-75ff340b.png" style="width:100%">
+    </div>
+
+    <div class="slide">
+        <img src="./image10.jpg" style="width:100%">
+    </div>
+    <div class="slide">
+        <img src="./image18.jpg" style="width:100%">
+    </div>
+
+    <div class="slide">
+        <img src="./images (1).jpg" style="width:100%">
+    </div>
+
+    <div class="slide">
+        <img src="./image19.jpg" style="width:100%">
+    </div>
+    <div class="slide">
+        <img src="./images.jpg" style="width:100%">
+    </div>
+
+    <div class="slide">
+        <img src="./image21.png" style="width:100%">
+    </div>
+
+    <div class="slide">
+        <img src="./image20.jpg" style="width:100%">
+    </div>
+    <div class="slide">
+        <img src="./image14.jpg" style="width:100%">
+    </div>
+
+    <div class="slide">
+        <img src="image15.jpg" style="width:100%">
+    </div>
+
+    <div class="slide">
+        <img src="./image17.jpg" style="width:100%">
+    </div>
+
+    <button class="prev" onclick="plusSlides(-1)"><</button>
+    <button class="next" onclick="plusSlides(1)">></button>
+    <button class="stop-start" onclick="toggleSlideshow()">Stop</button>
+</div>
+
+<script>
+    var slideIndex = 1;
+    var slideshowInterval;
+
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+        clearInterval(slideshowInterval); 
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+        clearInterval(slideshowInterval);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("slide");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+    }
+
+    function toggleSlideshow() {
+        var stopStartButton = document.querySelector('.stop-start');
+        if (stopStartButton.innerHTML === 'Stop Slideshow') {
+            stopStartButton.innerHTML = 'Start Slideshow';
+            clearInterval(slideshowInterval);
+        } else {
+            stopStartButton.innerHTML = 'Stop Slideshow'
+            slideshowInterval = setInterval(function() { 
+                plusSlides(1);
+            }, 3000); 
+        }
+    }
+
+    slideshowInterval = setInterval(function() {
+        plusSlides(1);
+    }, 2000);
+</script>
+
+</body>
+</html>
