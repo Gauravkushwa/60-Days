@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your JSX code here
+
+      // condition1
+
+
+      let element = document.querySelector('#root');
+      let rootElement = <p>Seize the day</p>
+      ReactDOM.createRoot(element).render(rootElement);
+
+      // condition2
+
+     let elementText = "second condition"
+      let element2 = <p>{elementText}</p>
+      ReactDOM.createRoot(element).render(element2)
+
+
+
+      let condition = true;
+      let condition1 = <p>First paragraph !</p>
+      let condition2 =<p>second paragraph !</p>
+      let checkCondition = condition ? condition1 : condition2;
+      ReactDOM.createRoot(element).render(checkCondition)
+
+    </script>
+  </body>
+</html>
