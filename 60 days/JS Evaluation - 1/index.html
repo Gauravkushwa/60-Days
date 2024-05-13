@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       table{
+        width: 100%;
+       }
+      .tr tr{
+        display: grid;
+        grid-template-columns: 1fr 3fr 2fr 2fr 2fr;
+        padding: 20px 30px;
+        color: white;
+        text-align: center;
+        border-radius: 5px;
+       }
+       tr td{
+        margin-left: 1px;
+        padding: 15px 30px;
+        text-align: center;
+     
+       }
+      .tr td{
+        margin-left: 1px;
+        background-color: #0468aa;
+        color: white;
+        padding: 20px 30px;
+        text-align: center;
+     
+       }
+       table tr:nth-child(even) {
+        background-color: #8caacf;
+        color: black;
+        }
+
+        table tr:nth-child(odd) {
+        background-color: #ddd;
+        color: black;  
+        }
+        table tr:hover {
+        background-color: #ddd;
+        }
+        .selected{
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center;color: #0468aa;">Emaployee Management System</h1>
+    <div class="selected">
+        <p>Filter By Dipartment:
+            <select name="department" id="department">Selected
+                <option value="">..Selected By Department..</option>
+                <option value="hr"> hr</option>
+                <option value="finance">finance</option>
+                <option value="marketing">marketing</option>
+                <option value="engineering">engineering</option>
+                <option value="operations">operations</option>
+            </select>
+        </p>
+        <p>Filter By Gender:
+            <select id="gender">
+                <option value="">..Selected By Gender..</option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+            </select>
+        </p>
+        <p>Short By Salary:
+            <select id="level">
+                <option value="">..Selected By Salary..</option>
+                <option value="asc">High to Low</option>
+                <option value="desc">Low to High</option>
+            </select>
+        </p>
+    </div>
+    <table>
+        <thead class="thead">
+            <tr class="tr">
+                <td>s No.</td>
+                <td>Name</td>
+                <td>Gender</td>
+                <td>Department</td>
+                <td>Salary</td>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        <!-- Append Data there -->
+
+        </tbody>
+    </table>
+    
+</body>
+</html>
+<script src="./script.js">
+</script>
