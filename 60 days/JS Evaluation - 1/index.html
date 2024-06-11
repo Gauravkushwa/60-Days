@@ -50,47 +50,30 @@
     </style>
 </head>
 <body>
-
+   
     <h1 style="text-align: center;color: #0468aa;">Emaployee Management System</h1>
-    <div class="selected">
-        <p>Filter By Dipartment:
-            <select name="department" id="department">Selected
-                <option value="">..Selected By Department..</option>
-                <option value="hr"> hr</option>
-                <option value="finance">finance</option>
-                <option value="marketing">marketing</option>
-                <option value="engineering">engineering</option>
-                <option value="operations">operations</option>
-            </select>
-        </p>
-        <p>Filter By Gender:
-            <select id="gender">
-                <option value="">..Selected By Gender..</option>
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-            </select>
-        </p>
-        <p>Short By Salary:
-            <select id="level">
-                <option value="">..Selected By Salary..</option>
-                <option value="asc">High to Low</option>
-                <option value="desc">Low to High</option>
-            </select>
-        </p>
-    </div>
-    <table>
-        <thead class="thead">
-            <tr class="tr">
-                <td>s No.</td>
-                <td>Name</td>
-                <td>Gender</td>
-                <td>Department</td>
-                <td>Salary</td>
+
+    <select id="selectData">
+        <option value="">Select Department</option>
+    </select>
+
+    <select  id="selectSalary">
+        <option value="">Sort By Salary</option>
+        <option value="lowToHigh">Low to High</option>
+        <option value="highToLow">High to Low</option>
+    </select>
+
+    <table id="employeeTable">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Salary</th>
+                <th>Department</th>
             </tr>
         </thead>
-        <tbody id="tbody">
-        <!-- Append Data there -->
-
+        <tbody>
         </tbody>
     </table>
     
